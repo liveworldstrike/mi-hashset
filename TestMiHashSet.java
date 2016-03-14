@@ -35,7 +35,7 @@ public class TestMiHashSet
         //toString
         System.out.println();
         System.out.println("Obteniendo la representacion en cadena del conjunto...")    ;   
-        numeroTestsFallados += testea("()", hashset.toString(), "toString");            
+        numeroTestsFallados += testea("[]", hashset.toString(), "toString");            
         
         //add
         System.out.println();
@@ -85,7 +85,7 @@ public class TestMiHashSet
         //toString
         System.out.println();
         System.out.println("Obteniendo la representacion en cadena del conjunto...")    ;   
-        numeroTestsFallados += testea("(9, 3, 6)", hashset.toString(), "toString");     
+        numeroTestsFallados += testea("[9, 3, 6]", hashset.toString(), "toString");     
         
         //equals
         System.out.println();
@@ -96,15 +96,27 @@ public class TestMiHashSet
         otroHashSet.add(9);
         MiHashSet hashSetVacio = new MiHashSet();
         numeroTestsFallados += testea(true, hashset.equals(otroHashSet), "equals(otroHashSet)");     
-        numeroTestsFallados += testea(false, hashset.equals(otroHashSet), "equals(hashSetVacio)");          
+        numeroTestsFallados += testea(false, hashset.equals(hashSetVacio), "equals(hashSetVacio)");  
+        otroHashSet.add(12);
+        numeroTestsFallados += testea(false, hashset.equals(otroHashSet), "equals(otroHashSet)");    
 
-        
+        //remove
+        System.out.println();
+        System.out.println("Borrando elementos no existentes...")    ;   
+        numeroTestsFallados += testea(false, hashset.remove(600), "remove(600)"); 
+        numeroTestsFallados += testea(false, hashset.remove(60), "remove(60)"); 
+        numeroTestsFallados += testea(false, hashset.remove(6000), "remove(6000)");        
         
         //size y isEmpty    
         numeroTestsFallados += testea(3, hashset.size(), "size()");    
         numeroTestsFallados += testea(false, hashset.isEmpty(), "isEmpty()");        
         
-       
+        //remove
+        System.out.println();
+        System.out.println("Borrando elementos existentes...")    ;   
+        numeroTestsFallados += testea(true, hashset.remove(6), "remove(6)"); 
+        numeroTestsFallados += testea(true, hashset.remove(3), "remove(3)"); 
+        numeroTestsFallados += testea(true, hashset.remove(9), "remove(9)");         
         
         //size y isEmpty    
         numeroTestsFallados += testea(0, hashset.size(), "size()");    
@@ -113,7 +125,7 @@ public class TestMiHashSet
         //toString
         System.out.println();
         System.out.println("Obteniendo la representacion en cadena del conjunto...")    ;   
-        numeroTestsFallados += testea("()", hashset.toString(), "toString");        
+        numeroTestsFallados += testea("[]", hashset.toString(), "toString");        
         
         //equals
         System.out.println();
@@ -124,7 +136,7 @@ public class TestMiHashSet
         otroHashSet.add(9);
         hashSetVacio = new MiHashSet();
         numeroTestsFallados += testea(false, hashset.equals(otroHashSet), "equals(otroHashSet)");     
-        numeroTestsFallados += testea(true, hashset.equals(otroHashSet), "equals(hashSetVacio)");         
+        numeroTestsFallados += testea(true, hashset.equals(hashSetVacio), "equals(hashSetVacio)");         
         
         System.out.println();
         if (numeroTestsFallados == 0) {
@@ -146,7 +158,7 @@ public class TestMiHashSet
                           String nombreFuncion)
     {
         int valorDevuelto = 0;
-        if (valorEsperado == valorObtenido) {
+        if (valorEsperado.equals(valorObtenido)) {
             System.out.println("OK: " + nombreFuncion);
         }
         else {

@@ -86,10 +86,9 @@ public class MiHashSet
         for(int i = 0; i < collection.length ; i++){
             if(i == 0){
                 toString = toString  + collection[i];
-
             }
             else{ 
-                toString = toString + "," + collection[i];	
+                toString = toString + ", "  + collection[i];	
             }
         }
         toString = toString + "]";
@@ -102,9 +101,10 @@ public class MiHashSet
      */
     public boolean equals(MiHashSet otroConjunto)
     {
-        boolean iguales = true;
-        if(otroConjunto.size() == collection.length){
-            for(int i = 0;i < collection.length; i++){
+        boolean iguales = false;
+        if(collection.length == otroConjunto.size()){
+            iguales = true;
+            for(int i = 0;i < collection.length && iguales; i++){
                 if(!otroConjunto.contains(collection[i])){
                     iguales = false;
                 }
@@ -128,13 +128,11 @@ public class MiHashSet
                 if (collection[index] == elemento){
                     eliminar = true;
                 }
-
                 else if(!eliminar){
                     if(index != collection.length - 1 ){
                         newCollection[index]   = collection[index];
                     }
                 }
-
                 else{
                     newCollection[index - 1]   = collection[index];
                 }
