@@ -82,13 +82,20 @@ public class MiHashSet
      * devuelve una cadena conteniendo todos los elementos del conjunto separados por comas y entre corchetes.
      */
     public String toString(){
-       String cadenaCol = "[" + collection[0] + "]";
-        for(int i = 1; i < collection.length; i++){
-            cadenaCol = cadenaCol + " ,[" + collection[i] + "]";
+        String toString = "[";
+        for(int i = 0; i < collection.length ; i++){
+            if(i == 0){
+                toString = toString  + collection[i];
+
+            }
+            else{ 
+                toString = toString + "," + collection[i];	
+            }
         }
-        return cadenaCol;
+        toString = toString + "]";
+        return toString;
     }
-    
+
     /**
      * devuelve verdadero si el parámetro es igual al conjunto sobre el que se invoca 
      * falso en otro caso.
@@ -105,5 +112,37 @@ public class MiHashSet
         }
         return iguales;
     }
-}
 
+    /**
+     * elimina del conjunto el elemento dado.
+     * Si no existiera devuelve falso; 
+     * si existía en el conjunto devuelve verdadero.
+     */
+    public boolean remove(int elemento){
+        boolean delete = false;
+        if(collection.length != 0)
+        {
+            int[] newCollection  = new int[collection.length - 1];
+            for(int index = 0; index < collection.length ; index++ )
+            {
+                if (collection[index] == elemento){
+                    delete = true;
+                }
+
+                else if(!delete){
+                    if(index != collection.length - 1 ){
+                        newCollection[index]   = collection[index];
+                    }
+                }
+
+                else{
+                    newCollection[index - 1]   = collection[index];
+                }
+            }
+            if(delete){ 
+                collection   = newCollection;
+            }
+        }
+        return delete;
+    }
+}
