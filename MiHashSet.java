@@ -119,17 +119,17 @@ public class MiHashSet
      * si existía en el conjunto devuelve verdadero.
      */
     public boolean remove(int elemento){
-        boolean delete = false;
+        boolean eliminar = false;
         if(collection.length != 0)
         {
             int[] newCollection  = new int[collection.length - 1];
             for(int index = 0; index < collection.length ; index++ )
             {
                 if (collection[index] == elemento){
-                    delete = true;
+                    eliminar = true;
                 }
 
-                else if(!delete){
+                else if(!eliminar){
                     if(index != collection.length - 1 ){
                         newCollection[index]   = collection[index];
                     }
@@ -139,10 +139,10 @@ public class MiHashSet
                     newCollection[index - 1]   = collection[index];
                 }
             }
-            if(delete){ 
+            if(eliminar){ 
                 collection   = newCollection;
             }
         }
-        return delete;
+        return eliminar;
     }
 }
