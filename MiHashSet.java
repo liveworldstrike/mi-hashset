@@ -47,7 +47,7 @@ public class MiHashSet
     public void clear(){
         collection = new int[0];
     }
-    
+
     /**
      *  devuelve verdadero si el conjunto contiene el elemento
      *  falso en caso contrario.
@@ -62,5 +62,14 @@ public class MiHashSet
         }
         return contiene;
     }
- 
+
+    /**
+     * devuelve verdadero si el conjunto no contiene elementos.
+     */
+    public boolean isEmpty()
+    {
+        return collection.length == 0;
+    }
+    
+    
 }
