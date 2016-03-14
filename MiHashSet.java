@@ -89,4 +89,21 @@ public class MiHashSet
         return cadenaCol;
     }
     
+    /**
+     * devuelve verdadero si el parámetro es igual al conjunto sobre el que se invoca 
+     * falso en otro caso.
+     */
+    public boolean equals(MiHashSet otroConjunto)
+    {
+        boolean iguales = true;
+        if(otroConjunto.size() == collection.length){
+            for(int i = 0;i < collection.length; i++){
+                if(!otroConjunto.contains(collection[i])){
+                    iguales = false;
+                }
+            }
+        }
+        return iguales;
+    }
 }
+
