@@ -48,4 +48,19 @@ public class MiHashSet
         collection = new int[0];
     }
     
+    /**
+     *  devuelve verdadero si el conjunto contiene el elemento
+     *  falso en caso contrario.
+     */
+    public boolean contains(int elemento)
+    {
+        boolean contiene = false;
+        for(int i = 0; i < collection.length && !contiene; i++){
+            if(collection[i] == elemento){
+                contiene = true;
+            }
+        }
+        return contiene;
+    }
+ 
 }
