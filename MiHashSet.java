@@ -95,23 +95,29 @@ public class MiHashSet
         return toString;
     }
 
-    /**
-     * devuelve verdadero si el parámetro es igual al conjunto sobre el que se invoca 
-     * falso en otro caso.
-     */
-    public boolean equals(MiHashSet otroConjunto)
-    {
-        boolean iguales = false;
-        if(collection.length == otroConjunto.size()){
-            iguales = true;
-            for(int i = 0;i < collection.length && iguales; i++){
-                if(!otroConjunto.contains(collection[i])){
-                    iguales = false;
-                }
-            }
-        }
-        return iguales;
-    }
+    //**
+     //* devuelve verdadero si el parámetro es igual al conjunto sobre el que se invoca 
+     //* falso en otro caso.
+    // */
+    //public boolean equals(MiHashSet otroConjunto)
+    //{
+        //boolean iguales = wtrue;
+        //if(collection.length == otroConjunto.size()){
+            //int index = 0;
+           
+            
+            //while (index<collection.length && conjuntosIguales) {
+               // if (!otroConjunto.contains(collection[i]))) {
+                     //iguales = false;
+               // }
+                //index++;
+           
+       // }
+        //return iguales;
+        
+        //}
+        
+
 
     /**
      * elimina del conjunto el elemento dado.
