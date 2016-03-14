@@ -70,12 +70,28 @@ public class MiHashSet
     {
         return collection.length == 0;
     }
-    
+
     /**
      * devuelve el número de elementos del conjunto.
      */
     public int size(){
         return collection.length;
     }
-    
-}
+
+    /**
+     * devuelve una cadena conteniendo todos los elementos del conjunto separados por comas y entre corchetes.
+     */
+    public String toString(){
+        String toString = "[";
+        for(int i = 0; i < collection.length ; i++){
+            if(i == 0){
+                toString = toString  + collection[i];
+
+            }
+            else{ 
+                toString = toString + "," + collection[i];	
+            }
+        }
+        toString = toString + "]";
+        return toString;
+    }
