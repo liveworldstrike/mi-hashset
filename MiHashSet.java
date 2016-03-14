@@ -82,17 +82,11 @@ public class MiHashSet
      * devuelve una cadena conteniendo todos los elementos del conjunto separados por comas y entre corchetes.
      */
     public String toString(){
-        String toString = "[";
-        for(int i = 0; i < collection.length ; i++){
-            if(i == 0){
-                toString = toString  + collection[i];
-
-            }
-            else{ 
-                toString = toString + "," + collection[i];	
-            }
+       String cadenaCol = "[" + collection[0] + "]";
+        for(int i = 1; i < collection.length; i++){
+            cadenaCol = cadenaCol + " ,[" + collection[i] + "]";
         }
-        toString = toString + "]";
-        return toString;
+        return cadenaCol;
     }
+    
 }
